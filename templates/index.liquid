@@ -1,0 +1,104 @@
+<h1>
+  Prohall landing page
+</h1>
+
+<p>
+  Welcome to our home page
+
+</p>
+
+<div class="product"></div>
+
+<div class="infographics">
+  <p>BENEFITS</p>
+  <p>INDICATIONS AND SPECIFICATIONS</p>
+  <img src= "{{ 'product-benefits.jpg' | asset_url }}" alt="product-benefits" />
+  <img src="{{ 'product-instructions.jpg' | asset_url }}" alt="product-instructions" />
+
+</div>
+
+<div class="kit-display">
+  <div class="kd-item">
+    <img src="{{ 'shampoo.jpg' | asset_url }}" alt="shampoo" />
+    <p>Get a deep and thorough cleansing without any damage with our Miracle 
+      Therapy Kit! Our exclusive formula removes all accumulated residues from 
+      your hair strands, preparing them perfectly for the ideal treatment. Say 
+      goodbye to dry and dull hair and hello to intense hydration, softness, 
+      and luminosity, all while protecting your strands from harmful radicals. 
+      Get your hands on our professional-grade hair care solution today and 
+      experience the difference in healthy hair growth!</p>
+  </div>
+  <div class="kd-item">
+    <img src="{{ 'treatment.jpg' | asset_url }}" alt="treatment" />
+    <p>The advanced hair straighten technology in our hair transformation 
+      formula combines a complex mixture of long chain fatty acids, eave system,
+      jojoba ester, and capsicum extract to achieve stunning and long-lasting 
+      results. This revolutionary formula eliminates frizz and transforms hair 
+      into beautiful, silky-smooth straighten strands from the roots to the 
+      tips.</p>
+  </div>
+  <div class="kd-item">
+    <img src="{{ 'spray.jpg' | asset_url }}" alt="spray-finisher" />
+    <p>Our Miracle Therapy Finishing Spray 300ml is an effective solution that 
+      neutralizes free radicals, balances pH levels of the hair, and assists in
+       aligning cuticles. Its potent assets aid in moisturizing and balancing 
+       the hair's pH, filling fissures, preventing breakage, and recovering 
+       damaged parts. It enhances hair hydration and softness.</p>
+  </div>
+</div>
+
+{% style %}
+  .infographics {
+    background-color: #f1f4f8;
+    display: grid;
+
+    padding: 60px 0;
+
+    justify-content: center;
+    grid-template-columns: 305px 305px;
+    grid-template-rows: 30px 380px;
+
+    grid-column-gap: 40px;
+    grid-row-gap: 15px;
+  }
+
+  .infographics img {
+    border-radius: 10px;
+  }
+
+  .infographics p {
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial;
+  }
+
+  .kit-display {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    grid-column-gap: 20px;
+    
+    justify-content: center;
+    padding: 50px 40px;
+  }
+
+  .kd-item {
+    background-color: #f1f4f8;
+    display: grid;
+    
+    padding: 30px;
+    padding-bottom: 10px;
+    border: 1px solid orange;
+    
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 5px;
+  }
+
+  .kd-item p {
+    border: 1px solid green;
+
+    color: gray;
+    font-size: 12px;
+    font-family: Arial;
+  }
+
+{% endstyle %}

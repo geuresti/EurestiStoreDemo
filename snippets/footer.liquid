@@ -1,0 +1,32 @@
+<footer>
+  <div class="center">
+    <img src="{{ 'prohall-logo.png' | asset_url }}" alt="prohall logo"/>
+  </div>
+  <p>©2023 Your Company. All Rights Reserved. Created with Leadpages.</p>
+  <p>Include additional legal information in this area if necessary.</p>
+</footer>
+
+{% style %}
+.center {
+  display: grid;
+  justify-content: center;
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+footer img {
+  width: 100px;
+  margin: 10px 0px;
+}
+
+footer p {
+  font-size: 11px;
+  font-family: Arial;
+  text-align: center;
+  padding: 3px 0;
+  color: gray;
+}
+{% endstyle %}
