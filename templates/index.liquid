@@ -1,13 +1,47 @@
-<h1>
-  Prohall landing page
-</h1>
 
-<p>
-  Welcome to our home page
+<div class="product-container">
+  <div class="product-kit">
+    <img src="{{ 'product-kit-colorful.png' | asset_url }}" alt="product kit" />
+  </div>
+  <div class="product-video">
+    <iframe src="https://www.youtube.com/embed/PhCfBYOk4Sk"></iframe>
+  </div>
+  <div class="before-after">
+    <img src="{{ 'before-after.png' | asset_url }}" alt="before and after product use" />
+  </div>
+  <div class="product-description">
+    <h1> Miracle Therapy </h1>
+    <h2> $180 (CHANGE TO USE LIQUID) </h2>
+    <h2>
+      Protein-Infused Smoothing: Elevating and Restoring
+      Hair Fiber Excellence!
+    </h2>
+    <p>Introducing Prohall MiracleTherapy Straightening Kit: Elevate your hair
+    elegance with this trio of transformative essentials.</p>
+    <p>Our exclusive kit includes the MiracleTherapy Pre-Treatment Shampoo, 
+    Miracle Straightening Treatment, and Miracle Finishing Spray. Prepare 
+    with the Miracle Therapy Straightening Pre-Treatment Shampoo 16oz, 
+    enriched with antioxidants for deep cleansing without compromising 
+    strands.</p>
+    <p>Experience the pinnacle of sleekness through the Miracle Therapy 
+    Straightening Treatment 16oz. Our Eave System® technology aligns strands, 
+    ensuring a disciplined, sealed cuticle for flawless straightness.</p>
+    <p>Conclude with MiracleTherapy Finishing Spray 10 oz. Neutralizing radicals 
+    and promotes pH balancing, hydrates, repairs, and enhances softness, 
+    delivering an unmatched straightened radiance. Discover the art of 
+    professional Protein hair straightening with the Miracle Therapy 
+    Straightening Kit—where elegance meets transformation.</p>
 
-</p>
+    <div class="purchase-contact">
+      <button id="buy">Buy now</button>
+      <div class="contact">
+        <p><b><i>Phone:</b></i> 786-256-1582<br>
+        <b><i>Whatsapp:</b></i> +1 (305) 922-3770 </p>
+      </div>
+    </div>
 
-<div class="product"></div>
+  </div>
+</div>
 
 <div class="infographics">
   <p>BENEFITS</p>
@@ -48,57 +82,143 @@
 </div>
 
 {% style %}
+
+  h1, h2, h3, p {
+    font-family: Arial;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .product-kit { grid-area: productKit; }
+  .product-kit img {
+    width: 32vw;
+    border-radius: 10px;  
+  }
+  .product-video { grid-area: productVideo; }
+  .product-video iframe {
+    width: 32vw;
+    height: 20vw;
+    border: none;
+  }
+  .before-after { grid-area: beforeAfter; }
+  .before-after img {
+    border-radius: 10px;
+    width: 32vw;
+  }
+  .product-description { grid-area: productDesc; }
+  .product-description p {
+    font-size: 18px;
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-areas:
+      'productKit productDesc'
+      'productVideo productDesc'
+      'beforeAfter productDesc';
+
+    grid-row-gap: 18px;
+    grid-column-gap: 32px;
+
+    margin: 70px;
+    margin-bottom: 0;
+  }
+
+  .purchase-contact {
+    display: grid;
+    grid-template-rows: 60px 40px;
+    grid-row-gap: 10px;
+
+    justify-content: center;
+  }
+
+  #buy {
+    width: 40vw;
+    height: 56px;
+
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+
+    background-color: #2fca90;
+    border: 1px solid #f0edf1;
+    border-radius: 45px;
+  }
+
+  .contact {
+    text-align: center;
+  }
+
+  .contact p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+/* infographics need to be bigger. base it on vw? */
   .infographics {
     background-color: #f1f4f8;
     display: grid;
 
-    padding: 60px 0;
+    padding: 70px 0;
 
     justify-content: center;
-    grid-template-columns: 305px 305px;
-    grid-template-rows: 30px 380px;
+    grid-template-columns: repeat(2, 35vw);
+    grid-template-rows: 30px auto;
 
     grid-column-gap: 40px;
-    grid-row-gap: 15px;
+    grid-row-gap: 25px;
   }
 
   .infographics img {
     border-radius: 10px;
+   /* width: max(35vw, 500px);*/
   }
 
   .infographics p {
     font-weight: bold;
-    font-size: 12px;
-    font-family: Arial;
+    font-size: 16px;
   }
 
   .kit-display {
     display: grid;
-    grid-template-columns: repeat(3, 250px);
-    grid-column-gap: 20px;
-    
-    justify-content: center;
-    padding: 50px 40px;
-  }
 
+    grid-template-columns: repeat(3, 25vw);
+    grid-column-gap: 50px;
+
+    justify-content: center;
+    padding: 50px 0;
+  }
+/* 
+- need a max stretch for the panels
+- panels stretch weird when the page shrinks
+*/
   .kd-item {
     background-color: #f1f4f8;
     display: grid;
     
     padding: 30px;
-    padding-bottom: 10px;
-    border: 1px solid orange;
+    
+    /*width: max(25vw, 200px);*/
+    width: clamp(200px, 250px, 300px);
     
     grid-template-rows: repeat(2, 1fr);
     grid-row-gap: 5px;
   }
 
   .kd-item p {
-    border: 1px solid green;
+    color: black;
+    font-size: 17px;
+    /*padding-right: 5px;*/
 
-    color: gray;
-    font-size: 12px;
-    font-family: Arial;
+
+    width: inherit;
+  }
+
+  .kd-item img { 
+   /* width: 22vw;*/
+    width: inherit;
   }
 
 {% endstyle %}
