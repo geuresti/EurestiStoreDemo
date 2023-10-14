@@ -1,7 +1,16 @@
 
 <div class="product-container">
+
+  {% assign product = {{ all_products['miracle-therapy-straightening-kit'] }} %}
+  
+  {% for prod in product %}
+    <p>SWAG: {{ prod }} </p>
+  {% endfor %}
+
   <div class="product-kit">
-    <img src="{{ 'product-kit-colorful.png' | asset_url }}" alt="product kit" />
+    <a href="https://eurestistoredemo.myshopify.com/products/miracle-therapy-straightening-kit">   
+      <img src="{{ 'product-kit-colorful.png' | asset_url }}" alt="product kit" />
+    </a>
   </div>
   <div class="product-video">
     <iframe src="https://www.youtube.com/embed/PhCfBYOk4Sk"></iframe>
@@ -10,8 +19,10 @@
     <img src="{{ 'before-after.png' | asset_url }}" alt="before and after product use" />
   </div>
   <div class="product-description">
-    <h1> Miracle Therapy </h1>
-    <h2> $180 (CHANGE TO USE LIQUID) </h2>
+    <a href="https://eurestistoredemo.myshopify.com/products/miracle-therapy-straightening-kit">   
+      <h1> Miracle Therapy </h1>
+      <h2> $180 </h2>
+    </a>
     <h2>
       Protein-Infused Smoothing: Elevating and Restoring
       Hair Fiber Excellence!
@@ -110,6 +121,10 @@
   .product-description { grid-area: productDesc; }
   .product-description p {
     font-size: 18px;
+  }
+  .product-description a {
+    text-decoration: none;
+    color: black;
   }
 
   .product-container {

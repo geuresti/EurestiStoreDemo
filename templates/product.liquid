@@ -1,0 +1,87 @@
+
+<div class="container">
+    <div class="left-column">
+        <div>
+            <img class="mkit" src="{{'miracle-kit.PNG' | asset_url}}"/>
+        </div>
+        <div>
+            <img class="mbox" src="{{'miracle-box.PNG' | asset_url}}"/>
+        </div>
+    </div>
+    <div class="right-column">
+        <div class="product-title">
+            <h1> {{ product.title }} </h1>
+            <button id="buy">Add to cart</button>
+        </div>
+        <div class="price-available">
+            <p>price: {{ product.price | money }}</p>
+            <p> Available? {{ product.available }} </p>
+        </div>
+        <div class="desc">
+            {{ product.description }}
+        </div>
+        <div class="misc-info">
+            <p>type: {{ product.type }}</p>
+            <p>vendor: {{ product.vendor }}</p>
+        </div>
+    </div>
+</div>
+{% style %} 
+
+.mbox { grid-area: mBox; }
+
+.mkit { grid-area: mKit; }
+
+.mkit { width: 85%; }
+
+
+.container {
+    display: grid;
+    grid-template-columns: 45vw 30vw;
+    grid-column-gap: 18px;
+    justify-content: center;
+    margin: 50px 0;
+
+    /*border: 2px solid green;*/
+}
+
+.right-column {
+    width: 35vw;
+    display: grid;
+    grid-template-rows: auto 70px auto 70px;
+    /*    border: 1px solid purple;*/
+}
+
+#buy {
+    width: 25vw;
+    height: 46px;
+
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+
+    background-color: #2fca90;
+    border: 1px solid #f0edf1;
+    border-radius: 45px;
+  }
+
+.right-column div {
+    width: inherit;
+    /*    border: 1px solid pink;*/
+}
+
+.left-column {
+    justify-content: space-around;
+
+    display: grid;
+    width: inherit;
+
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+
+    align-items: center;
+
+    /*    border: 1px solid orange;*/
+}
+
+{% endstyle %}
