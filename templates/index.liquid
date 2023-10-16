@@ -54,12 +54,13 @@
   </div>
 </div>
 
-<div class="infographics">
-  <p>BENEFITS</p>
-  <p>INDICATIONS AND SPECIFICATIONS</p>
-  <img src= "{{ 'product-benefits.jpg' | asset_url }}" alt="product-benefits" />
-  <img src="{{ 'product-instructions.jpg' | asset_url }}" alt="product-instructions" />
-
+<div class="bg-color-gray">
+  <div class="infographics">
+    <p>BENEFITS</p>
+    <p>INDICATIONS AND SPECIFICATIONS</p>
+    <img src= "{{ 'product-benefits.jpg' | asset_url }}" alt="product-benefits" />
+    <img src="{{ 'product-instructions.jpg' | asset_url }}" alt="product-instructions" />
+  </div>
 </div>
 
 <div class="kit-display">
@@ -104,19 +105,21 @@
 
   .product-kit { grid-area: productKit; }
   .product-kit img {
-    width: 32vw;
+    width: 80%;
     border-radius: 10px;  
   }
   .product-video { grid-area: productVideo; }
   .product-video iframe {
-    width: 32vw;
-    height: 20vw;
+    width: 30vw;
+    height: 35vh;
+    min-width: 500px;
+    max-width: 500px;
     border: none;
   }
   .before-after { grid-area: beforeAfter; }
   .before-after img {
     border-radius: 10px;
-    width: 32vw;
+    width: 85%;
   }
   .product-description { grid-area: productDesc; }
   .product-description p {
@@ -129,16 +132,23 @@
 
   .product-container {
     display: grid;
+
+    width: 70%;
+    margin: auto;
+    max-width: 800px;
+
     grid-template-areas:
       'productKit productDesc'
       'productVideo productDesc'
       'beforeAfter productDesc';
 
-    grid-row-gap: 18px;
-    grid-column-gap: 32px;
+    justify-content: center;
 
-    margin: 70px;
-    margin-bottom: 0;
+    grid-row-gap: 25px;
+    grid-column-gap: 38px;
+
+    padding: 70px;
+    padding-bottom: 0;
   }
 
   .purchase-contact {
@@ -153,6 +163,8 @@
     width: 40vw;
     height: 56px;
 
+    max-width: 400px;
+
     font-size: 23px;
     font-weight: bold;
     color: white;
@@ -160,6 +172,8 @@
     background-color: #2fca90;
     border: 1px solid #f0edf1;
     border-radius: 45px;
+
+    text-shadow: -2px 2px black;
   }
 
   .contact {
@@ -171,24 +185,30 @@
     margin: 0;
   }
 
-/* infographics need to be bigger. base it on vw? */
-  .infographics {
+  .bg-color-gray {
     background-color: #f1f4f8;
+  }
+
+  .infographics {
     display: grid;
+    width: 50%;
+    min-width: 800px;
+    margin: auto;
 
     padding: 70px 0;
 
     justify-content: center;
-    grid-template-columns: repeat(2, 35vw);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 30px auto;
 
-    grid-column-gap: 40px;
+    grid-column-gap: 50px;
     grid-row-gap: 25px;
   }
 
   .infographics img {
     border-radius: 10px;
-   /* width: max(35vw, 500px);*/
+    width: 100%;
+    max-width: 370px;
   }
 
   .infographics p {
@@ -199,41 +219,48 @@
   .kit-display {
     display: grid;
 
-    grid-template-columns: repeat(3, 25vw);
-    grid-column-gap: 50px;
+    grid-template-columns: repeat(3, 30vw);
+    grid-column-gap: 26px;
 
     justify-content: center;
-    padding: 50px 0;
+
+    height: auto;
+    min-height: 350px;
+    max-height: 650px;
+    margin: 70px 0;
+
   }
-/* 
-- need a max stretch for the panels
-- panels stretch weird when the page shrinks
-*/
+
   .kd-item {
     background-color: #f1f4f8;
     display: grid;
-    
-    padding: 30px;
-    
-    /*width: max(25vw, 200px);*/
-    width: clamp(200px, 250px, 300px);
-    
-    grid-template-rows: repeat(2, 1fr);
+
+    min-height: inherit;
+    max-height: inherit;
+
+    box-sizing: border-box;
+    padding: 30px;    
+
+    grid-template-rows: auto 50vh;
+    min-width: 275px;
+    max-width: 380px;
+
+    justify-content: center;
+    align-content: normal;
+  
     grid-row-gap: 5px;
   }
 
   .kd-item p {
     color: black;
     font-size: 17px;
-    /*padding-right: 5px;*/
-
-
-    width: inherit;
+    max-width: 320px;
   }
 
   .kd-item img { 
-   /* width: 22vw;*/
-    width: inherit;
+    width: 25vw;
+    border-radius: 10px;
+    max-width: 320px;
   }
 
 {% endstyle %}
