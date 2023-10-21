@@ -11,49 +11,67 @@
     <div class="right-column">
         <div class="product-title">
             <h1> {{ product.title }} </h1>
-            <button id="buy">Add to cart</button>
+        </div>
+        <div class="button">
+            {% if product.available %}
+                <form action="{{ routes.cart_url }}" method="post">
+                    <input id="buy" type="submit" name="checkout" value="Checkout">
+                </form>
+            {% endif %}
         </div>
         <div class="price-available">
-            <p>price: {{ product.price | money }}</p>
-            <p> Available? {{ product.available }} </p>
+            <h3>{{ product.price | money }}</h3>
+
+            {% if product.available %}
+                <p> Product in Stock </p>
+            {% else %}
+                <p> Product Unavailable </p>
+            {% endif %}
         </div>
         <div class="desc">
             {{ product.description }}
         </div>
-        <div class="misc-info">
-            <p>type: {{ product.type }}</p>
-            <p>vendor: {{ product.vendor }}</p>
-        </div>
+        
     </div>
 </div>
 {% style %} 
 
-.mbox { grid-area: mBox; }
+.mbox { grid-area: mBox; width: auto; }
 
-.mkit { grid-area: mKit; }
+.mkit { grid-area: mKit; width: 85%; max-width: 452px; } 
 
-.mkit { width: 85%; }
+.button { display: grid; justify-content: center; }
 
+.product-title {
+    font-size: 27px;
+}
+
+.price-available {
+    font-size: 22px;
+    font-style: italic;
+}
+
+.desc {
+    font-family: Arial;
+    font-size: 20px;
+}
 
 .container {
     display: grid;
-    grid-template-columns: 45vw 30vw;
+    grid-template-columns: 45vw 33vw;
     grid-column-gap: 18px;
     justify-content: center;
-    margin: 50px 0;
-
-    /*border: 2px solid green;*/
+    margin: 10vw 0;
 }
 
 .right-column {
-    width: 35vw;
+    width: inherit;
     display: grid;
-    grid-template-rows: auto 70px auto 70px;
-    /*    border: 1px solid purple;*/
+    justify-content: center;
 }
 
 #buy {
-    width: 25vw;
+    width: 22vw;
     height: 46px;
 
     font-size: 23px;
@@ -63,25 +81,42 @@
     background-color: #2fca90;
     border: 1px solid #f0edf1;
     border-radius: 45px;
+    
+    text-shadow: -2px 2px black;
   }
 
-.right-column div {
-    width: inherit;
-    /*    border: 1px solid pink;*/
+#buy:hover {
+    cursor: pointer;
 }
 
+
 .left-column {
-    justify-content: space-around;
+    max-width: 600px;
 
     display: grid;
-    width: inherit;
-
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-
+    grid-template-rows: auto auto;
     align-items: center;
+    justify-content: center;
+}
 
-    /*    border: 1px solid orange;*/
+@media only screen and (max-width: 850px) {
+    .container {
+        display: block;
+    }
+
+    .right-column {
+        display: block;
+        width: 70%;
+        margin: auto;
+    }
+
+    .product-title {
+        text-align: center;
+    }
+
+    .left-column {
+        margin: auto;
+    }
 }
 
 {% endstyle %}
